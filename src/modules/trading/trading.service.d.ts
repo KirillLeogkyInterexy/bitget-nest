@@ -1,0 +1,31 @@
+import { ConfigService } from '@nestjs/config';
+import { WebsocketService } from '../websocket/websocket.service';
+import { BitgetService } from '../bitget/bitget.service';
+export declare class TradingService {
+    private readonly configService;
+    private readonly bitgetService;
+    private readonly websocketService;
+    private readonly logger;
+    private totalPurchasedCryptoAmount;
+    private takeProfitOrderId;
+    private insuranceOrderTakeProfitAmount;
+    private initialCryptoPricePerOne;
+    private insuranceOrderIdList;
+    private buyAmount;
+    private takeProfitPercentage;
+    private symbol;
+    private priceDropPercentage;
+    private insuranceOrdersAmount;
+    private insuranceOrdersIntervalMultiplier;
+    private insuranceOrdersMultiplier;
+    constructor(configService: ConfigService, bitgetService: BitgetService, websocketService: WebsocketService);
+    private monitorMarket;
+    initializeCryptoBot(): Promise<void>;
+    placeInsuranceOrders(): Promise<void>;
+    private placeOrder;
+    private cancelOrder;
+    private restartCryptoBot;
+    private placeTakeProfitOrder;
+    private handleOrderChanged;
+    private subscribeToOrderUpdates;
+}
